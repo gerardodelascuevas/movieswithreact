@@ -1,0 +1,10 @@
+.card{
+    width: 50%;
+    margin:2rem;
+    background-color: rgb(226, 225, 225);
+}
+
+.card:hover{
+    box-shadow: 0 3px 5px rgb(0, 0, 0, 0.8);
+    background-color: rgba(192, 201, 201, 0.575);
+}
