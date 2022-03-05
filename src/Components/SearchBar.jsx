@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { getMyMoviePlease } from "../Actions";
+import { getMovies } from "../Actions";
 
 
 export default function SearchBar(){
     const dispatch = useDispatch();
-
-    let myMovie = useSelector(x=> x.myMoviePlease)
-    useEffect(m=> dispatch(getMyMoviePlease(m)))
+    //useEffect(m=> dispatch(getMovies(m)))
+    //let myMovie = useSelector(x=> x.getMovies)
+   
 
     const [state, setState] = useState('')
 
     const onChange = (e)=> {
         setState(e.target.value)       
     }
-    const getMyMovie = ()=> {
-        return myMovie
+    const getMyMovie = (state)=> {
+       dispatch(getMovies(state))
     }
 
+    console.log(state)
 
     return(
         <div className='container'> 

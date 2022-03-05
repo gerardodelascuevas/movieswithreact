@@ -6,35 +6,34 @@ const initialState = {
 }
 
 export default function rootReducer(state = initialState, action){
+    switch(action.type){
+        case "ADD_MOVIE_FAVORITE":
+            return{
+               ...state,
+                moviesFavorites: state.moviesFavorites.concat(action.payload)
 
-    if(action.type === "ADD_MOVIE_FAVORITE"){
-        return{
-            ...state,
-            moviesFavorites: state.moviesFavorites.concat(action.payload)
-        }
-    }
+            }
+        case "GET_MOVIES":
+            return {
+                ...state.moviesLoaded,
+                moviesLoaded: action.payload,
+            }
 
-    if(action.type === "GET_MOVIES"){
-        return {
-            ...state,
-            moviesLoaded:action.payload.Search
-        }
-    }
-
-    if(action.type === "DELETE_MOVIE"){
-        return {
-            ...state,
-            moviesFavorites: state.moviesFavorites.filter(m=> m.id !== action.payload)
-        }
-    }
-
-    if(action.type === "GET_DETAILS"){
-        return {
-            ...state,
-            moviesDetail: action.payload, 
-        }
+        case "DELETE_MOVIE":
+            let borrada = action.payload
+            let filtradas = state.moviesFavorites.filter(x=> x.imdbID !== borrada)    
         
+            return{
+                ...state,
+                moviesFavorites: filtradas,
+            }
+        case "GET_DETAILS": 
+        return {
+            ...state,
+            moviesDetail: action.payload,
+        }
+
+        default: return state
+        }
 
     }
-    return state
-}

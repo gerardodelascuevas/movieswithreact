@@ -1,9 +1,12 @@
 
 @media (max-width: 575px) {
- .movies{
-     display: grid;
-     grid-template-columns: repeat(1, 1fr);
- }
+    img {
+        height: 15rem;
+        width: 10rem;
+      }      
+      .card{
+          align-items: center;
+      }
        
   }
   /** dispositivos pequeños en vista landscape (horizontal) */
@@ -20,9 +23,11 @@
   }
   /** dispositivos extra grandes (monitores grandes, tvs) */
   @media (min-width: 1200px) {
-    .movies{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        align-items: end;
-    }
+    img {
+        height: 500px;
+        width: 80%;
+      }      
+      .card{
+          align-items: center;
+      }
   }  
