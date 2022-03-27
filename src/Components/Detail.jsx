@@ -12,8 +12,6 @@ export default function Detail(){
     dispatch(getMovieDetail(id))
     let myMovie = useSelector(state=> state.moviesDetail)
 
-    console.log('esto es myMovie: ' + myMovie)
-
     const myFavorite = ()=> {   
         dispatch(addMovies(id))
         alert('Your movie was added successfully')

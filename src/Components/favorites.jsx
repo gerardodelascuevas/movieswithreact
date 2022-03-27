@@ -7,9 +7,6 @@ import { deleteMovies } from '../Actions';
 export default function Favorites(){
     const dispatch = useDispatch()
     let myMovie = useSelector(state=> state.moviesFavorites)
-   console.log('aca las favoritas '+ myMovie)
-   console.log(myMovie)
-
    const borrando = (id)=> {
        dispatch(deleteMovies(id))
 
@@ -39,8 +36,6 @@ export default function Favorites(){
                         <span>Plot: {x.Plot}</span>
                    </div>
                }) }
-          
-          
         </div>
            </div>
        </div>
